@@ -1,0 +1,49 @@
+
+
+    .navMR{
+        margin-right: 2rem;
+    }
+    .navML{
+        margin-left: 15rem;
+    }
+    .center{
+        text-align: center;
+        justify-content: center;
+    }
+    .progressText{
+        text-align: right;
+        font-size: 1.1rem;
+    }
+    .progressText .progress .progress-bar{
+        background-color: #467b52;
+        opacity: 0.6;
+    }
+    .marginDiv{
+        margin-left:4rem;
+        margin-right:4rem;
+    }
+    .margin4{
+        margin:4rem;
+    }
+
+    .justified{
+        text-align: justify;
+    }
+
+    .header{
+        background-color: #bbbbbb;
+    }
+    hr{
+        height:2px;
+        border-width:0;
+        color:gray;
+        background-color:gray
+    }
+    .marginTitles{
+        margin-top:2rem;
+        margin-bottom:2rem;
+    }
+    .hide{
+        display: none;
+    }
+
