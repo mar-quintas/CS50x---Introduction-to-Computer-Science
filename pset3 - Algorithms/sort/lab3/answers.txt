@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: Because the time value for the sorted.txt was significally lower than the others suggesting an omega value different from the Big O.
+
+sort2 uses: merge sort
+
+How do you know?: Because Merge sort has Theta of n log n ,and the values where at the same time the lowest and the similar between each other.
+
+sort3 uses: selection sort
+
+How do you know?: Because selection sort has Theta of n square and the results where at the same time higher than te other sort types and similar between themselves.
