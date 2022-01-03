@@ -1,0 +1,168 @@
+Final proyect
+
+A web-based application using JavaScript, Python, and SQL
+
+- CSS
+    - add a huertapp's logo
+    - add picture to /index
+    - add Rooster's logo in the footer of the layout
+    - syles with color pallet
+
+- SQL
+    - huertapp.db
+        - users
+            - id
+            - username
+            - hash
+
+        - vegetables
+            - id
+            - name
+            - type
+            - season
+            - sowing_date
+
+        NICE TO HAVE
+            - add some more fields to the vegetables table
+                - sowing_date as a time frame
+                - water requirement as
+                    - low
+                    - medium
+                    - high
+
+        -users_vegetables
+            - users_id
+            - vegetables_id
+
+        -pants
+            .mode csv
+            .import ./plants.csv all_plants
+
+            CREATE TABLE plants(id INTEGER, name TEXT, alternateName TEXT, sowInstructions TEXT, spaceInstructions TEXT, harvestInstructions TEXT,
+            compatiblePlants TEXT, otherInstruction TEXT,
+            culinaryHints TEXT, culinaryPreservation TEXT, url TEXT, image TEXT, PRIMARY KEY(id));
+
+            INSERT INTO plants(name, alternateName, sowInstructions, spaceInstructions, harvestInstructions, compatiblePlants,
+            otherInstruction, culinaryHints , culinaryPreservation, url, image) SELECT name, alternateName, sowInstructions, spaceInstructions,
+            harvestInstructions, compatiblePlants, otherInstruction, culinaryHints , culinaryPreservation, url, image FROM all_plants;
+
+            -- use the database from data.world
+            -- Clean up or reorganize de data of plants
+            
+        - compatible_plants
+            CREATE TABLE compatible_plants(vegetable INTEGER, compatible INTEGER, FOREIGN KEY(vegetable) 
+            REFERENCES plants(id), FOREIGN KEY(compatible) REFERENCES plants(id));
+
+        NICE TO HAVE
+            - allow the user to choose a specific date to sow?
+
+    TODO
+        - Add info on sowing season/ time
+
+- HTML
+
+
+    - change the format of presentation of the vegetables to Boostrap's cards
+        - in vegetables_catalog.html
+    - change the vegetables view to a collapsable
+        - in index.html
+    NICE TO HAVE
+        - leave some space between item and item in index
+        - add a + icon to press for the collapsable
+        - add other icons that show different info such as cooking instrucction or sowing instructions
+
+
+- PY
+
+    - Session
+        - Register
+        - Log in
+        - Log out
+        - Pass
+
+    @vegetables_catalog
+        - Method GET
+        - path /vegetables_catalog
+        - vegetables_catalog.html
+
+        -- show every vegetable with all its info in a table
+        -- add a button for every vegetable to add it to the current user selection
+        - if user already has the vegetable remove vegetable altogether from list
+        - when user adds the vegetable remove it from list
+        - change the redirect to simply update the current page and not go to "/"
+
+    @index
+        - method GET
+        - path /
+        - index.html
+
+        -- Check if the current user has any selected vegetables
+            - if it has:
+                - show a list with the vegetables and a button for each with the option to remove them
+            - if it hasn't
+                - show the sign "you dont have any vegetables yet"
+                - show a button offering "select some" that redirects to /vegetables_catalog
+
+    @add()
+        - method POST
+        - path /add
+        - no html just a function
+
+        -- Checks the current users list of vegetables and if the vegetable to be added is not in the list, adds it to the database
+
+    @remove()
+        - method POST
+        - path /remove
+        - no html just a function
+
+        -- Checks the current users list of vegetables and if the vegetable to be removed is in the list, removes it from the database
+
+    (TODO) depending on my use of the database from data.wordld
+    @create_vegetable
+        - methods GET POST
+        - path /create_vegetable
+        - create_vegetable.html
+
+        -- Input fields:
+            - name (text)
+            - type (select)
+                - root
+                - leaf
+                - fruit
+                - seed
+            - season (select)
+                - winter
+                - summer
+                - all year
+            - sowing_date (select filtered by season)
+                - months
+    NICE TO HAVE
+        - choose hemisfere and that modifies the months of the sowing date according to the season
+        - have sowing_dates more specific than months
+
+    26/12 guarde un proyect.zip con todo funcionando y voy a arrancar con DnD
+
+    DnD
+        TODO - Babysteps
+            - hacer un rectangulo
+            - dropear una imagen adentro
+
+    MORE FUNCTIONALITY
+        - Add an option to select the sowing date
+        - Add an option to be notified x days before the sowing date by email
+        - ideally add information about sowing months for heach hemisfere
+           - IF i add info about sowing time i could let people sort the vegetables by it, so they will see
+             which is closer to be sowed
+
+    Creacion de canteros
+        - Ponerle un nombre/ default number al cantero
+        - Agregar range inpunts para decidir width y height del cantero
+        - agregarle los valores de width y height a los costados del container
+        - crear una nueva tabla donde guardar esta informacion 
+        - guardar la info 
+        
+        
+    MVP BETA 
+        - canteros de dimension fija 
+
+
