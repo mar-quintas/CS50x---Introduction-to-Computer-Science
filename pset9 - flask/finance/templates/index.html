@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <main class='container py-5 text-center'>
+        <h2>Holdings</h2>
+        <table class='table tablestriped'>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                    <th>Buy or Sell shares</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Loops through the table quotes searching the current user's shares-->
+                {% for quote in share %}
+                    <tr>
+                        <td >{{quote.symbol}}</td>
+                        <td>{{quote.name}}</td>
+                        <td>{{quote.shares}}</td>
+                        <td>{{quote.price | usd}}</td>
+                        <td>{{quote.total | usd}}</td>
+                        <td>
+                            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1" max='{{quote.shares}}' step='1'>
+                        </td>
+                        <td>
+                            <select autofocus class="form-select" name="form_op">
+                                <option disabled selected>Operation</option>
+                                    <option>Buy</option>
+                                    <option>Sell</option>
+                            </select>
+                        </td>
+                        <td>
+                            <form class='operation' action='' method="post">
+                                <input type='hidden' name='symbol' value='{{quote.symbol}}'>
+                                <input class='shares' type='hidden' name='shares' value=''>
+                                <button class='op_but' class="btn btn-primary" type="submit">Buy or Sell Shares</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class='border-0 fw-bold text-end' colspan='4'>Cash</td>
+                    <td class='border-0 text-end' colspan='4'>{{cash | usd}}</td>
+                </tr>
+                <tr>
+                    <td class='border-0 fw-bold text-end' colspan='4'>TOTAL</td>
+                    <td class='border-0 fw-bold text-end' colspan='4'>{{grand_total | usd}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+    <script>
+        $('.form-select').change(function() {
+            let new_action = $(this).val();
+            let form = $(this).closest('tr').find('.operation');
+
+            form.attr("action", ('/' + new_action.toLowerCase()));
+            form.find('.op_but').html(new_action + ' shares');
+        });
+
+        $('.form-control').change(function(){
+            let shares = $(this).val();
+            $(this).closest('tr').find('.shares').attr('value', shares )
+        });
+    </script>
+{% endblock %}
