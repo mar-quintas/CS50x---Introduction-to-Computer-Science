@@ -7,4 +7,5 @@ It was a six month course with 10 Clases via Zoom (and optionally recorded video
 
 Also availble on [youtube](https://www.youtube.com/playlist?list=PLhQjrBD2T383f9scHRNYJkior2VvYjpSL)
 
-![Certificate](https://cdn.discordapp.com/attachments/742856499138658424/927658819792805948/CS50x_-_Martina_Quintas.jpg)
+![Certificate](https://drive.google.com/uc?export=view&id=1N-5L-lNN9Lgf6bgZ-v5g-zLxsQxC3G5s)
+[Certificate](https://certificates.cs50.io/d96f4f77-9510-4c74-ad29-d767ffc9e893.pdf?size=letter)
